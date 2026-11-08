@@ -1,0 +1,6 @@
+# 이 PC에서만 쓰는 미리보기 설정
+.claude/
+
+# Python 캐시
+__pycache__/
+*.pyc

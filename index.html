@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>영단어 탐험대</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="top">
+    <h1>🚀 영단어 탐험대</h1>
+    <p class="progress-text">외운 단어 <strong id="learnedCount">0</strong> / <span id="totalCount">50</span></p>
+    <div class="progress-bar"><div id="progressFill"></div></div>
+  </header>
+
+  <nav class="tabs" role="tablist">
+    <button class="tab active" data-view="list" role="tab">📖 단어장</button>
+    <button class="tab" data-view="flash" role="tab">🃏 카드</button>
+    <button class="tab" data-view="quiz" role="tab">❓ 뜻 퀴즈</button>
+    <button class="tab" data-view="spell" role="tab">✏️ 철자</button>
+  </nav>
+
+  <div class="filter">
+    <label for="category">주제</label>
+    <select id="category"></select>
+  </div>
+
+  <main>
+    <!-- 단어장 -->
+    <section id="view-list" class="view active">
+      <ul id="wordList" class="word-list"></ul>
+    </section>
+
+    <!-- 플래시카드 -->
+    <section id="view-flash" class="view">
+      <p class="hint">카드를 눌러서 뜻을 확인하세요</p>
+      <button id="flashCard" class="flash-card" type="button">
+        <span class="flash-front">
+          <span id="flashWord" class="big-word"></span>
+          <span id="flashPos" class="pos"></span>
+        </span>
+        <span class="flash-back">
+          <img id="flashIcon" class="big-icon hidden" alt="">
+          <span id="flashMeaning" class="big-meaning"></span>
+          <span id="flashExample" class="example"></span>
+          <span id="flashExampleKo" class="example-ko"></span>
+        </span>
+      </button>
+      <p id="flashCounter" class="counter"></p>
+      <div class="row">
+        <button id="flashPrev" class="btn">◀ 이전</button>
+        <button id="flashSpeak" class="btn">🔊 단어</button>
+        <button id="flashSpeakExample" class="btn">💬 예문</button>
+        <button id="flashLearn" class="btn btn-star">⭐ 외웠어요</button>
+        <button id="flashNext" class="btn">다음 ▶</button>
+      </div>
+    </section>
+
+    <!-- 뜻 퀴즈 -->
+    <section id="view-quiz" class="view">
+      <div id="quizBox">
+        <p id="quizCounter" class="counter"></p>
+        <p class="hint">이 단어의 뜻은 무엇일까요?</p>
+        <div class="quiz-word">
+          <span id="quizWord" class="big-word"></span>
+          <button id="quizSpeak" class="icon-btn" aria-label="발음 듣기">🔊</button>
+        </div>
+        <div id="quizChoices" class="choices"></div>
+        <img id="quizIcon" class="mid-icon hidden" alt="">
+        <p id="quizFeedback" class="feedback"></p>
+        <button id="quizNext" class="btn btn-main hidden">다음 문제 ▶</button>
+      </div>
+      <div id="quizResult" class="result hidden"></div>
+    </section>
+
+    <!-- 철자 쓰기 -->
+    <section id="view-spell" class="view">
+      <div id="spellBox">
+        <p id="spellCounter" class="counter"></p>
+        <p class="hint">뜻을 보고 영어 단어를 써 보세요</p>
+        <img id="spellIcon" class="mid-icon hidden" alt="">
+        <p id="spellMeaning" class="big-meaning"></p>
+        <p id="spellHint" class="spell-hint"></p>
+        <form id="spellForm" class="spell-form" autocomplete="off">
+          <input id="spellInput" type="text" autocapitalize="off" spellcheck="false" placeholder="여기에 입력">
+          <button class="btn btn-main" type="submit">확인</button>
+        </form>
+        <div class="row">
+          <button id="spellSpeak" class="btn">🔊 소리 힌트</button>
+          <button id="spellShowHint" class="btn">💡 글자 힌트</button>
+        </div>
+        <p id="spellFeedback" class="feedback"></p>
+        <button id="spellNext" class="btn btn-main hidden">다음 문제 ▶</button>
+      </div>
+      <div id="spellResult" class="result hidden"></div>
+    </section>
+  </main>
+
+  <footer class="credits">
+    아이콘: <a href="https://github.com/microsoft/fluentui-emoji" target="_blank" rel="noopener">Fluent Emoji</a>
+    © Microsoft, <a href="icons/fluent-emoji-flat/LICENSE.txt" target="_blank">MIT 라이선스</a>
+    · <a href="https://iconify.design/" target="_blank" rel="noopener">Iconify</a> 제공
+  </footer>
+
+  <script src="words.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
